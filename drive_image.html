@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        img {
+            width: 100%; /* Ajusta la imagen al ancho de la pantalla */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+    </style>
+</head>
+<body>
+    <img id="image" alt="Imagen">
+    <script>
+        // Función para obtener el valor de un parámetro de la cadena de consulta por su nombre
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Obtiene el ID de la imagen de la cadena de consulta
+        const imageId = getQueryParam('id');
+
+        // Establece la fuente de la imagen basada en el ID
+        if (imageId) {
+            document.getElementById('image').src = 'https://drive.google.com/uc?export=view&id=' + imageId;
+        }
+    </script>
+</body>
+</html>
