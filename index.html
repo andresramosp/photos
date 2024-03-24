@@ -3,11 +3,30 @@
 
 <head>
     <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
         img {
             width: 80%;
-            /* Ajusta la imagen al ancho de la pantalla */
+            /* Ajusta el ancho de la imagen al 80% */
+            max-width: 80%;
+            /* Asegura que la imagen no exceda el 80% de su tamaño original */
             height: auto;
             /* Mantiene la proporción de la imagen */
+        }
+
+        @media (max-width: 768px) {
+            img {
+                width: 80%;
+                /* Ajusta el ancho de la imagen al 80% en dispositivos móviles */
+            }
         }
     </style>
 </head>
