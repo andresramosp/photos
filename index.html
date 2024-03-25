@@ -72,22 +72,35 @@
             document.getElementById('image').src = './images/' + imageName + ".jpg";
         }
 
-        function checkOrientation() {
-            setTimeout(() => {
-                const rotateIcon = document.getElementById('rotate-icon');
-                if (window.matchMedia("(orientation: portrait)").matches) {
-                    // Dispositivo en modo portrait
-                    rotateIcon.style.display = 'block'; // Muestra el icono
-                    image.classList.add('blur');
-                } else {
-                    // Dispositivo en modo landscape
-                    rotateIcon.style.display = 'none'; // Oculta el icono
-                    image.classList.remove('blur');
+        document.addEventListener("DOMContentLoaded", () => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+                document.documentElement.msRequestFullscreen();
+            }
+        });
 
-                }
-            }, 100);
 
-        }
+        // function checkOrientation() {
+        //     setTimeout(() => {
+        //         const rotateIcon = document.getElementById('rotate-icon');
+        //         if (window.matchMedia("(orientation: portrait)").matches) {
+        //             // Dispositivo en modo portrait
+        //             rotateIcon.style.display = 'block'; // Muestra el icono
+        //             image.classList.add('blur');
+        //         } else {
+        //             // Dispositivo en modo landscape
+        //             rotateIcon.style.display = 'none'; // Oculta el icono
+        //             image.classList.remove('blur');
+
+        //         }
+        //     }, 100);
+
+        // }
 
         // Verifica la orientación al cargar la página
         // checkOrientation();
