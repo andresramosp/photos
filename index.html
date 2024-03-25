@@ -57,7 +57,7 @@
 </head>
 
 <body>
-    <img id="image" alt="Imagen">
+    <img id="image" alt="Imagen" onclick="enterFullScreen();">
     <div id="rotate-icon" style="position: absolute; display: none;">
         <img src="./images/rotate.png" alt="Rotate Device" style="width: 120px; height: 120px;">
     </div>
@@ -72,17 +72,18 @@
             document.getElementById('image').src = './images/' + imageName + ".jpg";
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
-                document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
-                document.documentElement.msRequestFullscreen();
+        function enterFullScreen() {
+            const element = document.documentElement; // Obtiene el elemento raíz del documento
+            if (element.requestFullscreen) {
+                element.requestFullscreen(); // Activa el modo de pantalla completa
+            } else if (element.mozRequestFullScreen) { // Para Firefox
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { // Para Chrome, Safari y Opera
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { // Para IE/Edge
+                element.msRequestFullscreen();
             }
-        });
+        }
 
 
         // function checkOrientation() {
